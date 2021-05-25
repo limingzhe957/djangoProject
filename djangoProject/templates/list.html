@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+                {% if uid %}
+{#                    <li>{{ user }}</li>#}
+                     <li><a href="#">{{ uid }}</a></li>
+                     <li><a href="#">logout</a></li>
+                {% else %}
+                    <li><a href="{#  #}">register</a></li>
+                    <li><a href="{#  #}">login</a></li>
+                {% endif %}
+   <div class="b" align="center">
+    您的剩余积为：{{ par_int.integral }}
+        <table border="4">
+			<tr>
+                <td>礼品序号 </td>
+                <td>礼品名称</td>
+                <td>礼品展示</td>
+                <td>礼品详情</td>
+                <td>积分价格</td>
+
+                <td></td>
+                </tr>
+            {% for foo in GOOD %}
+                <tr>
+                <td>{{ foo.good_name }}</td>
+                <td>{{ foo.good_introduce }}</td>
+                <td><img src = "../static/img/good/{{ foo.good_picture }}" alt="" style="height: 60px;width: 60px"></td>
+                <td>{{ foo.good_num}}</td>
+                <td>{{ foo.good_picture }}</td>
+
+                <td><a href="/jifen/exchange_int/{{ foo.id }}">兑换</a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+   </div>
+</body>
+</html>
